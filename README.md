@@ -20,3 +20,5 @@ If no licence is mentioned, the project will under the WTFPL v2.
         TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
     0. You just DO WHAT THE FUCK YOU WANT TO.
+
+Also these files are provided "as-is". Use it at your own risk.
