@@ -55,9 +55,9 @@ _OpenInput	proc
 				.repeat
 					lodsb
 				.until	eax == '"'
-			.elseif	(eax == ' ' || eax == '	')	;space and tab
+			.elseif	(eax == 20h || eax == 09h)	;space and tab
 				inc	edx
-				.while	(eax == ' ' || eax == '	')
+				.while	(eax == 20h || eax == 09h)
 					lodsb
 				.endw
 				dec	esi
@@ -81,8 +81,8 @@ _OpenInput	proc
 				.repeat
 					lodsb
 				.until	eax == '"'
-			.elseif	(eax == ' ' || eax == '	')	;space and tab
-				.while	(eax == ' ' || eax == '	')
+			.elseif	(eax == 20h || eax == 09h)	;space and tab
+				.while	(eax == 20h || eax == 09h)
 					lodsb
 				.endw
 				dec	esi
