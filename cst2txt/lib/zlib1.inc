@@ -1,0 +1,2 @@
+Z_OK		equ	0
+uncompress	PROTO C	:DWORD,:DWORD,:DWORD,:DWORD
