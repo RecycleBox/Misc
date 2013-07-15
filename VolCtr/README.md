@@ -4,5 +4,5 @@ Windows Vista introduced new sets of API for audio system, which make everything
 
 ## Info
 
-* Platform: Windows x86/x86-64
+* Platform: Windows x86
 * Language: Assembly
