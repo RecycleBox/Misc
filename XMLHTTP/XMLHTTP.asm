@@ -293,10 +293,13 @@ XMLHTTPPostCallbackW	proc	uses ebx edi esi,_hHTTP,_lpszURL,_lpOptional,_dwSize,_
 			jmp	Quit4
 		.endif
 		mov	ecx,@nDataSize
+		dec	ecx
 		mov	esi,@lpBuf
 		mov	edi,eax
 		cld
 		rep	movsb
+		xor	eax,eax
+		stosb
 ;********************************************************************
 ; Clean up
 ;********************************************************************
