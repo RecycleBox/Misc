@@ -283,9 +283,7 @@ XMLHTTPPostCallbackW	proc	uses ebx edi esi,_hHTTP,_lpszURL,_lpOptional,_dwSize,_
 ;********************************************************************
 ; Allocate memory
 ;********************************************************************
-		.if	!@nDataSize
-			inc	@nDataSize
-		.endif
+		inc	@nDataSize	;for the last '\0'
 		invoke	HeapAlloc,_hHTTP,HEAP_ZERO_MEMORY,@nDataSize
 		.if	eax && (eax < 0c0000000h)
 			mov	@lpData,eax
@@ -299,8 +297,6 @@ XMLHTTPPostCallbackW	proc	uses ebx edi esi,_hHTTP,_lpszURL,_lpOptional,_dwSize,_
 		mov	edi,eax
 		cld
 		rep	movsb
-		xor	eax,eax
-		stosb
 ;********************************************************************
 ; Clean up
 ;********************************************************************
