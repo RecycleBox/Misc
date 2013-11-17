@@ -4,5 +4,5 @@ The XMLHTTP in VBScript is amazingly useful, and a lot of my programs are based 
 
 ## Info
 
-* Platform: Windows x86
-* Language: Assembly
+* Platform: Windows
+* Language: x86 Assembly / C
