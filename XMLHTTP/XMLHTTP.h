@@ -1,3 +1,6 @@
+#ifndef _XMLHTTP_H_
+#define _XMLHTTP_H_
+
 #include <windows.h>
 #include <winhttp.h>
 
@@ -50,3 +53,5 @@ LPVOID WINAPI HttpConvert(
     _In_    UINT  dwOriCodePage,
     _In_    UINT  dwCodePage
     );
+
+#endif /* _XMLHTTP_H_ */

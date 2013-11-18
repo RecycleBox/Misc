@@ -91,11 +91,13 @@ LPVOID WINAPI HttpPostCbW(
         goto Quit0;
     }
     // Set timeout time
+    /*
     if (!WinHttpSetTimeouts(hSession, 4000, 4000, 4000, 4000))
     {                              // DNS Connect Send Receive
         lpData = NULL;
         goto Quit1;
     }
+    */
     // Connect server
     HINTERNET hConnect = WinHttpConnect(hSession, stURL.lpszHostName, INTERNET_DEFAULT_PORT, 0);
     if (!hConnect)
@@ -122,7 +124,7 @@ LPVOID WINAPI HttpPostCbW(
     if (lpOptional)
     {
 
-        if (!WinHttpAddRequestHeaders(hHttp, L"Content-Type: application/x-www-form-urlencoded", -1, WINHTTP_ADDREQ_FLAG_ADD | WINHTTP_ADDREQ_FLAG_REPLACE))
+        if (!WinHttpAddRequestHeaders(hHttp, L"Content-Type: application/x-www-form-urlencoded", -1L, WINHTTP_ADDREQ_FLAG_ADD | WINHTTP_ADDREQ_FLAG_REPLACE))
         {
             lpData = NULL;
             goto Quit3;
@@ -158,7 +160,7 @@ LPVOID WINAPI HttpPostCbW(
     }
     DWORD dwDataSize = 0;
     DWORD nSize;
-    while (TRUE)
+    for (;;)
     {
         // Get data size and resize buffer
         if (lpCallback)

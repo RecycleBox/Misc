@@ -1,0 +1,7 @@
+NAME    libKDays.dll
+EXPORTS
+        kdays_get_book_info
+        kdays_get_book_dir
+        kdays_get_book_content
+        kdays_search_book
+        kdays_get_top
