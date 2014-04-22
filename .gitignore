@@ -1,5 +1,6 @@
 # Visual Studio files
 *.suo
 *.sdf
+*.opensdf
 Release
 Debug
