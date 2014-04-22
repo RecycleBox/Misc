@@ -1,4 +1,5 @@
 # Visual Studio files
 *.suo
+*.sdf
 Release
 Debug
