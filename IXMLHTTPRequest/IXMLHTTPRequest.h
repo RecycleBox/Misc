@@ -7,7 +7,7 @@
 typedef IXMLHTTPRequest *HXMLHTTP;
 
 HRESULT XMLHTTPCreate(
-    _In_    HXMLHTTP * hObject
+    _Inout_     HXMLHTTP * hObject
     );
 
 HRESULT XMLHTTPClose(

@@ -1,7 +1,10 @@
 #ifndef _BUNKO_H_
 #define _BUNKO_H_
 
-#include "src\bunko_struct.h"
+#include "bunko_struct.h"
+
+// #define BUNKO_API "http://kdays.cn/api/"
+#define BUNKO_API "http://kdays.cn/wenku_old/api/"
 
 LPKDAYS_BOOK_INFO WINAPI kdays_get_book_info(
     _In_    HANDLE hKDays,

@@ -1,0 +1,19 @@
+[uuid(418D319F-7050-4153-9AB5-CEE334543D57), helpstring("LIBID_IHost")]
+
+library IHost
+{
+    importlib("stdole32.tlb");
+
+    [uuid(55431FA1-CD05-494e-B9F7-CD3EBFE0B7DC), dual, helpstring("IID_IHost")]
+    interface IHostVTable : IDispatch
+    {
+        HRESULT alert([in] BSTR bstrPromt);
+        HRESULT getJSON([out, retval] BSTR *bstrJSON);
+    }
+
+    [uuid(01BD449E-4EB1-4443-BFDC-F36983779884), helpstring("CLSID_IHost")]
+    coclass IHost
+    {
+        [default] interface IHostVTable;
+    }
+}

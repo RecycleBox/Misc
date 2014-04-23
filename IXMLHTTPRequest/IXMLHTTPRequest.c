@@ -1,7 +1,7 @@
 #include "IXMLHTTPRequest.h"
 
 HRESULT XMLHTTPCreate(
-    _In_    HXMLHTTP * hObject
+    _Inout_     HXMLHTTP * hObject
     )
 {
     return CoCreateInstance(&CLSID_XMLHTTP60, 0, CLSCTX_INPROC_SERVER, &IID_IXMLHTTPRequest, hObject);

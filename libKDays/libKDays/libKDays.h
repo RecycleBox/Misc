@@ -2,7 +2,7 @@
 #define _LIBKDAYS_H_
 
 #include <windows.h>
-#include <XMLHTTP\XMLHTTP.h>
+#include <IXMLHTTPRequest\IXMLHTTPRequest.h>
 
 #include "src\bunko.h"
 

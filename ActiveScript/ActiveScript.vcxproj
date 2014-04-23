@@ -11,21 +11,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{ECC2526B-ED49-473C-AA5D-B7ECBAA00444}</ProjectGuid>
-    <Keyword>Win32Proj</Keyword>
-    <RootNamespace>libKDays</RootNamespace>
+    <ProjectGuid>{F810C871-973E-4070-AE57-4834E4254069}</ProjectGuid>
+    <RootNamespace>ActiveScript</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120_xp</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -39,74 +38,50 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LIBKDAYS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <CompileAs>
-      </CompileAs>
-      <DisableSpecificWarnings>4068;4100</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ModuleDefinitionFile>libKDays.def</ModuleDefinitionFile>
-      <AdditionalDependencies>winhttp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <WarningLevel>Level4</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBKDAYS_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <DebugInformationFormat />
-      <CompileAs>
-      </CompileAs>
-      <DisableSpecificWarnings>4068;4100</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <ModuleDefinitionFile>libKDays.def</ModuleDefinitionFile>
-      <EntryPointSymbol>DllMain</EntryPointSymbol>
-      <AdditionalDependencies>winhttp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\IXMLHTTPRequest\IXMLHTTPRequest.c" />
-    <ClCompile Include="libKDays.c" />
-    <ClCompile Include="src\bunko.c" />
+    <ClCompile Include="IActiveScript.c" />
+    <ClCompile Include="IActiveScriptSite.c" />
+    <ClCompile Include="IHost.c" />
+    <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\IXMLHTTPRequest\IXMLHTTPRequest.h" />
-    <ClInclude Include="libKDays.h" />
-    <ClInclude Include="src\bunko.h" />
-    <ClInclude Include="src\bunko_struct.h" />
+    <ClInclude Include="IActiveScript.h" />
+    <ClInclude Include="IActiveScriptSite.h" />
+    <ClInclude Include="IHost.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="libKDays.def" />
+    <Midl Include="IHost.idl">
+      <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName).tlb</TypeLibraryName>
+      <TypeLibraryName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectName).tlb</TypeLibraryName>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="IHost.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
